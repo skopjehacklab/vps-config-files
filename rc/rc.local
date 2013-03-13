@@ -13,6 +13,7 @@
 
 start-stop-daemon --start --pidfile /opt/nginx/var/nginx.pid --exec /opt/nginx/sbin/nginx
 start-stop-daemon --start --pidfile /opt/nginx/var/uwsgi.pid --exec /opt/nginx/sbin/uwsgi -- --ini /opt/nginx/uwsgi/emperor.ini
-start-stop-daemon --start --user couchdb --exec /opt/couchdb/bin/couchdb -- -b
+start-stop-daemon --start --user couchdb --exec /opt/couchdb/bin/couchdb -- -b \
+    -o /opt/couchdb/var/log/couchdb/couch.stdout -e /opt/couchdb/var/log/couchdb/couch.stderr
 
 exit 0
