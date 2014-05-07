@@ -1,4 +1,4 @@
-root html/myip;
+root /srv/html/myip;
 
 location / {
     default_type text/html;
@@ -7,12 +7,12 @@ location / {
 }
 location =/get {
     default_type text/html;
-    alias html/myip/myip.html;
+    alias /srv/html/myip/myip.html;
     ssi on;
 }
 location =/jsonp {
     default_type application/javascript;
-    alias html/myip/myip.json;
+    alias /srv/html/myip/myip.json;
     ssi on;
     ssi_types application/json application/javascript;
 }
@@ -21,7 +21,7 @@ location =/json {
     if ($arg_callback) {
         rewrite ^ /jsonp;
     }
-    alias html/myip/myip.json;
+    alias /srv/html/myip/myip.json;
     ssi on;
     ssi_types application/json application/javascript;
 }
