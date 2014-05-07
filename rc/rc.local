@@ -11,9 +11,7 @@
 #
 # By default this script does nothing.
 
-/sbin/start-stop-daemon --start --pidfile /opt/nginx/var/nginx.pid --exec /opt/nginx/sbin/nginx
-/sbin/start-stop-daemon --start --pidfile /opt/nginx/var/uwsgi.pid --exec /opt/nginx/sbin/uwsgi -- --ini /opt/nginx/uwsgi/emperor.ini
 /sbin/start-stop-daemon --start --background --chuid couchdb --exec /opt/couchdb/bin/couchdb -- -b \
-    -o /opt/couchdb/var/log/couchdb/couch.stdout -e /opt/couchdb/var/log/couchdb/couch.stderr
+    -o /opt/couchdb/var/log/couchdb/couch.stdout -e /opt/couchdb/var/log/couchdb/couch.stderr -r 5
 
 exit 0
